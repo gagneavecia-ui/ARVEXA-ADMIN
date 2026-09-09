@@ -991,7 +991,7 @@ onAuthStateChanged(auth, async (user) => {
     if (!isRedirecting) {
       isRedirecting = true;
       const redirectPath = user.email?.toLowerCase() === ADMIN_EMAIL
-        ? 'admin.html'
+        ? 'index.html'
         : (sessionStorage.getItem('redirectAfterLogin') || 'index.html');
       sessionStorage.removeItem('redirectAfterLogin');
       console.log('🚀 Redirection vers:', redirectPath);
@@ -1053,7 +1053,7 @@ form.addEventListener('submit', async (e) => {
     showToast('✅ Connexion réussie !', 'success');
 
     const redirectPath = user.email?.toLowerCase() === ADMIN_EMAIL
-      ? 'admin.html'
+      ? 'index.html'
       : (sessionStorage.getItem('redirectAfterLogin') || 'index.html');
     sessionStorage.removeItem('redirectAfterLogin');
     setTimeout(() => window.location.href = redirectPath, 1000);
