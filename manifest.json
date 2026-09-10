@@ -4,9 +4,9 @@
   "description": "Plateforme éducative pour la préparation au BAC - Cours, exercices, examens et outils scientifiques",
   "lang": "fr",
   "dir": "ltr",
-  "start_url": "/login.html",
-  "scope": "/",
-  "id": "/",
+  "start_url": "./login.html",
+  "scope": "./",
+  "id": "./",
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui"],
   "orientation": "portrait-primary",
@@ -15,38 +15,38 @@
   "categories": ["education", "productivity"],
   "prefer_related_applications": false,
   "icons": [
-    { "src": "/icon-72x72.png",   "sizes": "72x72",   "type": "image/png", "purpose": "any" },
-    { "src": "/icon-96x96.png",   "sizes": "96x96",   "type": "image/png", "purpose": "any" },
-    { "src": "/icon-128x128.png", "sizes": "128x128", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-144x144.png", "sizes": "144x144", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-152x152.png", "sizes": "152x152", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "/icon-384x384.png", "sizes": "384x384", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "./icon-72x72.png",   "sizes": "72x72",   "type": "image/png", "purpose": "any" },
+    { "src": "./icon-96x96.png",   "sizes": "96x96",   "type": "image/png", "purpose": "any" },
+    { "src": "./icon-128x128.png", "sizes": "128x128", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-144x144.png", "sizes": "144x144", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-152x152.png", "sizes": "152x152", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "./icon-384x384.png", "sizes": "384x384", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "shortcuts": [
     {
       "name": "Calculatrice",
       "short_name": "Calculatrice",
       "description": "Ouvrir la calculatrice scientifique",
-      "url": "/calculatrice.html",
-      "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96", "type": "image/png" }]
+      "url": "./calculatrice.html",
+      "icons": [{ "src": "./icon-96x96.png", "sizes": "96x96", "type": "image/png" }]
     },
     {
       "name": "Mode Examen",
       "short_name": "Examen",
       "description": "Lancer un examen BAC",
-      "url": "/mode-examen.html",
-      "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96", "type": "image/png" }]
+      "url": "./mode-examen.html",
+      "icons": [{ "src": "./icon-96x96.png", "sizes": "96x96", "type": "image/png" }]
     },
     {
       "name": "Mes Matières",
       "short_name": "Matières",
       "description": "Accéder aux cours",
-      "url": "/matiere.html?subject=mathematiques",
-      "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96", "type": "image/png" }]
+      "url": "./matiere.html?subject=mathematiques",
+      "icons": [{ "src": "./icon-96x96.png", "sizes": "96x96", "type": "image/png" }]
     }
   ],
   "handle_links": "preferred",
