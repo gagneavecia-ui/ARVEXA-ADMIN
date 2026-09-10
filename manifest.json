@@ -4,7 +4,7 @@
   "description": "Plateforme éducative pour la préparation au BAC - Cours, exercices, examens et outils scientifiques",
   "lang": "fr",
   "dir": "ltr",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
@@ -14,7 +14,7 @@
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "icon-72x72.png",
+      "src": "icon.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "any"
