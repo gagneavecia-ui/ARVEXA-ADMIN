@@ -1,19 +1,18 @@
-// sw.js — ARVEXA School Service Worker (mis à jour)
+// sw.js — ARVEXA School Service Worker
 const CACHE_NAME = 'arvexa-v1.0.0';
 const RUNTIME_CACHE = 'arvexa-runtime-v1';
 
 // Fichiers essentiels à mettre en cache dès l'installation
 const PRECACHE_URLS = [
-  './',
-  './index.html',
-  './login.html',
-  './admin-users.html',
-  './admin-content.html',
-  './manifest.json',
-  './pwa-register.js',
-  './icon.png',
-  './icon-192x192.png',
-  './icon-512x512.png'
+  '/',
+  '/login.html',
+  '/index.html',
+  '/admin-users.html',
+  '/admin-content.html',
+  '/manifest.json',
+  '/icon.png',
+  '/icon-192x192.png',
+  '/icon-512x512.png'
 ];
 
 // Installation : pré-cache
@@ -23,6 +22,7 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME)
       .then((cache) => {
         console.log('[SW] Pré-cache des fichiers');
+        // addAll échoue si UN fichier manque → on utilise add individuel
         return Promise.allSettled(
           PRECACHE_URLS.map(url =>
             cache.add(url).catch(err => console.warn('[SW] Échec cache:', url, err))
@@ -65,7 +65,7 @@ self.addEventListener('fetch', (event) => {
           caches.open(RUNTIME_CACHE).then(cache => cache.put(request, copy));
           return response;
         })
-        .catch(() => caches.match(request).then(r => r || caches.match('./login.html'))
+        .catch(() => caches.match(request).then(r => r || caches.match('/login.html')))
     );
     return;
   }
