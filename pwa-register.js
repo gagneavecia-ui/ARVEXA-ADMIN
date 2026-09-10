@@ -1,13 +1,14 @@
-// pwa-register.js — Enregistrement PWA ARVEXA
+// pwa-register.js — Enregistrement PWA ARVEXA (amélioré)
 (function () {
   if (!('serviceWorker' in navigator)) {
     console.warn('[PWA] Service Worker non supporté');
     return;
   }
 
+  // Enregistrement relatif pour fonctionner sous un sous-chemin (GitHub Pages, etc.)
   window.addEventListener('load', () => {
     navigator.serviceWorker
-      .register('/sw.js', { scope: '/' })
+      .register('./sw.js')
       .then((registration) => {
         console.log('[PWA] ✅ SW enregistré, scope:', registration.scope);
 
@@ -26,6 +27,9 @@
 
   // Détection de l'événement beforeinstallprompt
   let deferredPrompt = null;
+  window.deferredPWAInstall = {
+    get prompt() { return deferredPrompt; }
+  };
 
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
