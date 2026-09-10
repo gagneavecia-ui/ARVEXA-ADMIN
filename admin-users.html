@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#080909">
   <title>Utilisateurs | ARVEXA Admin</title>
-  <link rel="icon" href="./icon.png" type="image/png">
+  <link rel="icon" href="icon.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+ <!-- ============================================================ -->
+<!-- PWA LINKS - VERSION SIMPLIFIÉE -->
+<!-- ============================================================ -->
 
-<link rel="manifest" href="./manifest.json">
-<link rel="apple-touch-icon" href="./icon-192x192.png">
-<link rel="icon" href="./icon-192x192.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icon-192x192.png">
+<link rel="icon" href="/icon-192x192.png" type="image/png">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,36 +22,22 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0A0A0A">
  <style>
-    /* existing styles preserved (truncated in this commit) */
+    :root{--bg:#080909;--surface:#121614;--line:rgba(232,194,86,.13);--gold:#e0b84a;--green:#2d9b6b;--red:#d56655;--text:#f7f3e9;--muted:#91968e}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#203d2c 0,transparent 35%),var(--bg);color:var(--text);font:14px/1.5 Inter,Arial,sans-serif}.layout{display:flex;min-height:100vh}.side{width:250px;position:fixed;inset:0 auto 0 0;padding:24px 16px;background:#090b0a;border-right:1px solid var(--line);display:flex;flex-direction:column}.brand{font:700 22px "Playfair Display",serif;color:var(--text);text-decoration:none;padding:0 10px 24px;border-bottom:1px solid var(--line)}.brand span{color:var(--gold);font-style:italic}.nav{display:grid;gap:6px;padding-top:22px}.nav a{color:var(--muted);text-decoration:none;padding:12px 14px;border-radius:12px;display:flex;gap:12px;align-items:center}.nav a:hover,.nav a.active{color:var(--text);background:rgba(224,184,74,.1)}.nav i{width:18px;text-align:center}.foot{margin-top:auto;color:var(--muted);font-size:11px;padding:14px 10px;border-top:1px solid var(--line)}main{margin-left:250px;width:100%;padding:28px clamp(14px,4vw,52px) 45px;max-width:1600px}header{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:24px}h1{font:700 clamp(24px,3vw,34px) "Playfair Display",serif;margin:0}h1 span{color:var(--gold)}header p{color:var(--muted);margin:5px 0}.top{display:flex;gap:8px;align-items:center}.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:10px;padding:10px 12px}.panel{background:rgba(18,22,20,.94);border:1px solid var(--line);border-radius:18px;padding:20px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.stat{background:rgba(255,255,255,.025);padding:16px;border-radius:13px}.stat small{color:var(--muted);display:block}.stat b{font-size:24px;display:block;margin-top:7px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}.search{flex:1;min-width:210px}.search input,select{width:100%;padding:11px 12px;border-radius:10px;background:#0e1210;border:1px solid var(--line);color:var(--text);outline:none}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:720px}.table th{text-align:left;color:var(--muted);font-size:11px;font-weight:500;padding:10px 8px;border-bottom:1px solid var(--line)}.table td{padding:13px 8px;border-bottom:1px solid rgba(255,255,255,.05);white-space:nowrap;font-size:12px}.muted{color:var(--muted);font-size:11px}.badge{padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700}.badge.active{color:#76dda9;background:#2d9b6b22}.badge.blocked{color:#f18e7e;background:#d5665522}.actions{display:flex;gap:6px}.action{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:8px;padding:7px 9px}.action.block{color:#f18e7e}.empty{text-align:center;padding:28px;color:var(--muted)}.toast{position:fixed;bottom:18px;right:18px;background:#202821;border:1px solid var(--line);border-radius:12px;padding:13px 16px;opacity:0;transform:translateY(20px);transition:.2s}.toast.show{opacity:1;transform:none}@media(max-width:700px){.side{left:-270px;width:270px;z-index:4}.side.open{left:0}main{margin:0;padding:16px 12px 32px}header{align-items:center}header p{font-size:11px}.mobile{display:block!important}.stats{grid-template-columns:repeat(2,1fr);gap:8px}.stat{padding:12px}.stat b{font-size:20px}.panel{padding:14px;border-radius:14px}.top .btn span{display:none}}.mobile{display:none}
   </style>
 </head>
 <body>
-  <div class="layout">
-    <aside class="side" id="side"><a class="brand" href="index.html">ARVEX<span>A</span> <small>Admin</small></a>
-    <nav class="nav"><a href="index.html"><i class="fas fa-chart-pie"></i> Vue financière</a></nav>
-  </aside>
-
-  <main>
-    <button id="pwa-install-btn" style="display:none;position:fixed;top:12px;right:12px;z-index:60;background:transparent;border:none;color:var(--text);"> <i class="fas fa-download"></i> Installer</button>
-    <!-- page content -->
-  </main>
-
-  <!-- FOOTER -->
-<footer class="admin-footer">
-  <div class="footer-glow"></div>
-  <div class="footer-container">
-    <div class="footer-col footer-brand-col">
-      <div class="footer-logo">ARVEX<span>A</span></div>
-      <p class="footer-description">Plateforme éducative de référence pour la préparation au BAC Terminale D.</p>
-    </div>
-  </div>
-  <div class="footer-divider"></div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 <strong>ARVEXA School</strong> — Tous droits réservés</div>
-    <div class="footer-legal"><a href="#">Conditions</a><span>•</span><a href="#">Confidentialité</a></div>
-  </div>
-</footer>
-
-<script src="./pwa-register.js" defer></script>
+  <div class="layout"><aside class="side" id="side"><a class="brand" href="index.html">ARVEX<span>A</span> <small>Admin</small></a><nav class="nav"><a href="index.html"><i class="fas fa-chart-pie"></i> Vue financière</a><a class="active" href="admin-users.html"><i class="fas fa-users"></i> Utilisateurs</a><a href="admin-content.html"><i class="fas fa-book-open"></i> Cours et chapitres</a></nav><div class="foot">gagneavecia@gmail.com<br>Console sécurisée</div></aside><main><header><div><div class="top"><button class="btn mobile" id="menu" aria-label="Ouvrir le menu"><i class="fas fa-bars"></i></button><h1>Gestion <span>users</span></h1></div><p>Consulter les profils, abonnements et accès de chaque membre.</p></div><div class="top"><button class="btn" id="refresh"><i class="fas fa-rotate"></i> </i> <span>Finances</span></a></div></header><section class="stats"><div class="stat"><small>Total utilisateurs</small><b id="total">0</b></div><div class="stat"><small>Premium actifs</small><b id="premium">0</b></div><div class="stat"><small>Comptes gratuits</small><b id="free">0</b></div><div class="stat"><small>Bloqués</small><b id="blocked">0</b></div></section><section class="panel"><div class="toolbar"><div class="search"><input id="search" type="search" placeholder="Nom, email ou téléphone"></div><select id="filter" aria-label="Filtrer les utilisateurs"><option value="all">Tous les comptes</option><option value="premium">Premium</option><option value="free">Gratuits</option><option value="blocked">Bloqués</option></select></div><div class="table-wrap"><table class="table"><thead><tr><th>Utilisateur</th><th>Email</th><th>Abonnement</th><th>Inscription</th><th>Dernière connexion</th><th>Statut</th><th>Actions</th></tr></thead><tbody id="rows"></tbody></table><div class="empty" id="empty">Chargement des utilisateurs...</div></div></section></main></div><div class="toast" id="toast"></div>
+ <script type="module">
+    import{initializeApp}from"https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";import{getAuth,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";import{getFirestore,collection,getDocs,doc,updateDoc,query,orderBy,limit}from"https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+    const config={apiKey:"AIzaSyDHscOXw3rLuhV6z1Cny-bdYCumqpnG7QE",authDomain:"arvexa-fbf10.firebaseapp.com",projectId:"arvexa-fbf10",storageBucket:"arvexa-fbf10.firebasestorage.app",messagingSenderId:"920108330053",appId:"1:920108330053:web:f532d71cbc2c824bc7472c"},ADMIN="gagneavecia@gmail.com",auth=getAuth(initializeApp(config)),db=getFirestore(auth.app);let users=[];
+    const $=id=>document.getElementById(id),safe=v=>String(v||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c])),date=v=>{if(!v)return"—";const d=typeof v.toDate==="function"?v.toDate():new Date(v);return Number.isNaN(d.getTime())?"—":d.toLocaleDateString("fr-FR")};
+    function toast(m){$("toast").textContent=m;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),3000)}
+    async function load(){const snap=await getDocs(query(collection(db,"users"),orderBy("createdAt","desc"),limit(500)));users=snap.docs.map(d=>({id:d.id,...d.data()}));render()}
+    function render(){const q=$("search").value.toLowerCase(),f=$("filter").value;const premium=users.filter(u=>(u.premium||u.isUnlocked)&&u.accountStatus!=="blocked"),blocked=users.filter(u=>u.accountStatus==="blocked");$("total").textContent=users.length;$("premium").textContent=premium.length;$("free").textContent=users.length-premium.length-blocked.length;$("blocked").textContent=blocked.length;const rows=users.filter(u=>{const isPremium=(u.premium||u.isUnlocked)&&u.accountStatus!=="blocked",isBlocked=u.accountStatus==="blocked";return(!q||[u.fullName,u.firstName,u.lastName,u.email,u.phone].some(v=>String(v||"").toLowerCase().includes(q)))&&(f==="all"||(f==="premium"&&isPremium)||(f==="free"&&!isPremium&&!isBlocked)||(f==="blocked"&&isBlocked))});$("rows").innerHTML=rows.map(u=>{const isPremium=u.premium||u.isUnlocked,isBlocked=u.accountStatus==="blocked";return`<tr><td><b>${safe(u.fullName||`${u.firstName||""} ${u.lastName||""}`.trim()||"Sans nom")}</b><div class="muted">${safe(u.id.slice(0,12))}</div></td><td>${safe(u.email||"—")}</td><td>${isPremium?`<span class="badge active">${u.subscriptionPlan==="annual"?"Annuel":"Premium"}</span>`:"Gratuit"}</td><td>${date(u.createdAt)}</td><td>${date(u.lastLogin)}</td><td><span class="badge ${isBlocked?"blocked":"active"}">${isBlocked?"Bloqué":"Actif"}</span></td><td><div class="actions"><button class="action ${isBlocked?"":"block"}" data-id="${u.id}" data-block="${!isBlocked}">${isBlocked?"Débloquer":"Bloquer"}</button></div></td></tr>`}).join("");$("empty").style.display=rows.length?"none":"block"}
+    async function toggle(id,block){if(!confirm(block?"Bloquer cet utilisateur ?":"Réactiver cet utilisateur ?"))return;await updateDoc(doc(db,"users",id),{accountStatus:block?"blocked":"active"});toast(block?"Utilisateur bloqué.":"Utilisateur réactivé.");load()}
+    $("rows").addEventListener("click",e=>{const b=e.target.closest("[data-id]");if(b)toggle(b.dataset.id,b.dataset.block==="true")});$("search").addEventListener("input",render);$("filter").addEventListener("change",render);$("refresh").addEventListener("click",load);$("menu").addEventListener("click",()=>$("side").classList.toggle("open"));onAuthStateChanged(auth,u=>{if(!u||u.email.toLowerCase()!==ADMIN)location.href="login.html";else load()});
+  </script>
 </body>
 </html>
+
