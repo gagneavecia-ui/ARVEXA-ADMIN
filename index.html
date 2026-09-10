@@ -11,6 +11,22 @@
    <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="icon" href="icon.png" type="image/png">
+  <script>
+  // Enregistrement du Service Worker PWA
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", async () => {
+      try {
+        const registration = await navigator.serviceWorker.register("./sw.js", {
+          scope: "./"
+        });
+
+        console.log("✅ Service Worker enregistré :", registration.scope);
+      } catch (error) {
+        console.error("❌ Échec Service Worker :", error);
+      }
+    });
+  }
+</script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
   <style>
     :root{--bg:#080909;--surface:#121614;--surface-2:#181d19;--line:rgba(232,194,86,.12);--gold:#d5a928;--gold-light:#f0cc65;--green:#2d9b6b;--red:#d56655;--text:#f7f3e9;--muted:#91968e;--sidebar:250px;--radius:18px}
@@ -420,7 +436,6 @@
       <a href="#">Confidentialité</a>
       <span>•</span>
       <a href="#">Aide</a>
-    </div>
   </div>
 </footer>
 
